@@ -10,7 +10,7 @@
             </div>
             <div class="modal-body">
                 <div class="table-responsive">
-                    <table class="table table-bordered" width="100%" cellspacing="0">
+                    <table class="table table-bordered tbl-info" width="100%" cellspacing="0">
                         <thead>
                             <tr>
                                 <th style="width: 20%;">Name</th>

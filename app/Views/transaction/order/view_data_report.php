@@ -44,7 +44,6 @@
             },
             dataType: "json",
             success: function(response) {
-                console.log(response);
                 if (response.output) {
                     $('.view-modal').html(response.output).show();
                     $('#detailModal').modal('show');

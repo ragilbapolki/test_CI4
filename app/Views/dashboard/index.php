@@ -171,7 +171,7 @@
                     dataType: "json",
                     success: function(response) {
                         $('.view-modal').html(response.output).show();
-                        $('#detailModal').modal('show');
+                        $('#detailModal').modal('show');                        
                     }
                 })
             })

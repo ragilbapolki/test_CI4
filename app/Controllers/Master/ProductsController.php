@@ -36,7 +36,7 @@ class ProductsController extends BaseController
 			$p_category = $this->request->getVar('p_category');
 
 			$data = [
-				'data_products' => $this->products->getDataProducts($p_unit,$p_category)
+				'data_products' => $this->products->getDataProducts($p_category,$p_unit)
 			];
 
 			$result = [

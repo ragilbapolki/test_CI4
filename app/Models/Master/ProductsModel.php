@@ -16,7 +16,7 @@ class ProductsModel extends Model
 	public function getDataProducts($p_category=null,$p_unit=null)
     {
 		// parameter
-		$category 	= empty($p_category) ? '1=1':'m_products.category_id = '.$p_category;
+		$category 	= empty($p_category) ? '1=1':'m_category_products.id = '.$p_category;
 		$unit 		= empty($p_unit) ? '1=1':'m_products.unit_id = '.$p_unit;
 
          return $this->db->table('m_products')

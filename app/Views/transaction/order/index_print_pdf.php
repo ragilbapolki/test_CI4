@@ -15,7 +15,7 @@
                     List Order 
                 </div>
                 <div class="card-body">
-                    <a href="" class="btn btn-primary btn-sm mb-2 add-modal" title="Add"><i class="fas fa-plus-square"></i> Add </a>
+                    <!-- <a href="" class="btn btn-primary btn-sm mb-2 add-modal" title="Add"><i class="fas fa-plus-square"></i> Add </a> -->
                     <button class="btn btn-info btn-sm mb-2 btn-search" disabled title="Search"><i class="fas fa-search"></i> Search </button>
                     <div class="row col">
                         <label for="name" class="col-sm- mb-2 col-form-label">Start Date</label>&nbsp;
@@ -62,6 +62,10 @@
             }
         })
         $(".btn-search").click(function(){
+            if (p_end_date == null || p_end_date == '') {
+                toastr.error('End date is empty');
+                return false;
+            } 
             getDataReport(p_start_date, p_end_date)
         })
         getDataReport = (p_start_date, p_end_date) => {

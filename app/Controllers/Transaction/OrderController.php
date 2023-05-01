@@ -46,8 +46,8 @@ class OrderController extends BaseController
 	public function get_data()
 	{
 		if ($this->request->isAJAX()) {
-			$start_date 	= date_format(date_create($this->request->getVar('p_start_date')),"Y-m-d");
-			$end_date 		= date_format(date_create($this->request->getVar('p_end_date')),"Y-m-d");
+			$start_date 	= $this->request->getVar('p_start_date');
+			$end_date 		= $this->request->getVar('p_end_date');
 			
 			$data = [
 				'data_order' => $this->order->getDataOrderParam($start_date,$end_date)

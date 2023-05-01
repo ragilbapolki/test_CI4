@@ -21,7 +21,7 @@
                         <td colspan="2" class="p-1"><?= date_format(new DateTime(($data_first['created_at'])),'d-m-Y H:i:s'); ?></td>
                     </tr>
                     <tr>
-                        <td colspan="2" class="p-1"><strong>Kasir</strong></td>
+                        <td colspan="2" class="p-1"><strong>Cashier</strong></td>
                         <td colspan="2" class="p-1"><?= $data_first[0]['username']; ?></td>
                     </tr>
                     <tr>
@@ -85,12 +85,16 @@
             data: {
                 id: id
             },
-            dataType: "json",
+            xhrFields: {
+                responseType: 'blob'
+            },
             success: function(response) {
-                console.log(response);
-                if (response.output) {
-                    $('.view-modal').html(response.output).show();
-                    $('#detailModal').modal('show');
+                if (response) {
+                    var blob = new Blob([response]);
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = "Invoice .pdf";
+                    link.click();
                 }
             }
         });

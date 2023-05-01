@@ -29,9 +29,9 @@
                             <i class="fas fa-trash"></i>    
                          </button>
                          
-                         <button class="btn btn-info btn-sm mb-1" title="Delete" onclick="detail('<?= $datas['id']; ?>')">
+                         <!-- <button class="btn btn-info btn-sm mb-1" title="Delete" onclick="detail('<?= $datas['id']; ?>')">
                             <i class="fa fa-eye" aria-hidden="true"></i>
-                         </button>
+                         </button> -->
 
                      </td>
                  </tr>

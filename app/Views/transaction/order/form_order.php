@@ -376,13 +376,15 @@
                 data: {
                     id: id
                 },
-                dataType: "json",
+                xhrFields: {
+                    responseType: 'blob'
+                },
                 success: function(response) {
-                    console.log(response);
-                    if (response.output) {
-                        $('.view-modal').html(response.output).show();
-                        $('#detailModal').modal('show');
-                    }
+                    var blob = new Blob([response]);
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = "Invoice .pdf";
+                    link.click();
                 },
             });
         }

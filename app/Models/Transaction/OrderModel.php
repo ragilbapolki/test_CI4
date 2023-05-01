@@ -24,8 +24,7 @@ class OrderModel extends Model
 
 	public function getDataOrderParam($start_date,$end_date)
     {
-		$p_where		= empty($start_date == null) && empty($end_date == null) ?'1=1':"date BETWEEN ' ". $start_date . "' and '".$end_date."'";
-		
+		$p_where		= empty($start_date) && empty($end_date) ?'1=1':"date BETWEEN ' ". date_format(date_create($start_date),"Y-m-d") . "' and '".date_format(date_create($end_date),"Y-m-d")."'";
 		return $this->db->table('t_order')
 		->select('m_customer.name, t_order.*')		
 		->join('m_customer','t_order.customer_id = m_customer.id', 'left')

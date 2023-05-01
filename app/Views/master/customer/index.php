@@ -54,7 +54,6 @@
                     dataType: "json",
                     success: function(response) {
                         $('.view-modal').html(response.output).show();
-
                         $('#addModal').modal('show')
                     },
                     error: function(xhr, ajaxOptions, thrownError) {

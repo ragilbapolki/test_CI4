@@ -23,11 +23,11 @@
                 <th><?= $data_first[0]['no']; ?></th>
             </tr>
             <tr>
-                <th>Tanggal</th>
+                <th>Date</th>
                 <th><?= date_format(new DateTime(($data_first['created_at'])),'d-m-Y H:i:s'); ?></th>
             </tr>
             <tr>
-                <th>Kasir</th>
+                <th>Cashier</th>
                 <th><?= $data_first[0]['username']; ?></th>
             </tr>
             <tr>
