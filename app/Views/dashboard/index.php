@@ -16,103 +16,152 @@
                 </div>
             </div>
             </ol>
+            
+            <div class="row">
+                <section class="col-lg-12 connectedSortable">
+                    <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                        <i class="fas fa-chart-bar mr-1"></i>
+                        Effectiveness
+                        </h3>
+                        <div class="card-tools">
+                        <ul class="nav nav-pills ml-auto">
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content p-0">
+                        <div class="chart tab-pane active" id="" style="position: relative; height: 300px;">
+                            <canvas id="chart-bar" height="300" style="height: 300px;"></canvas>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+          
+                <section class="col-lg-12 connectedSortable">
+                    <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">
+                        <i class="fas fa-chart-pie mr-1"></i>
+                        Status
+                        </h3>
+                        <div class="card-tools">
+                        <ul class="nav nav-pills ml-auto">
+                        </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content p-0">
+                        <div class="chart tab-pane active" id="sales-chart" style="position: relative; height: 300px;">
+                            <canvas id="chart-donut" height="300" style="height: 300px;"></canvas>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </section>
+            </div>
+            
             <div class="row">
                 <div class="col-lg-3 col-6">
-                    <div class="small-box bg-info">
+                    <div class="small-box bg" style="background-color: #bbd7fa;color: white;">
                     <div class="inner">
-                        <h3 id='count_order' class="p_1"> <?= number_format($count_order[0]['id']); ?></h3>
-                        <p>Sales</p>
+                        <h3 id='count_draft' class="p_1"> <?= number_format($count_draft[0]['id']); ?></h3>
+                        <p>DRAFT</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-bag"></i>
                     </div>
-                    <a href="#" data-link="order" class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="#" data-link="<?= number_format($count_draft[0]['id_stage']); ?>" class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
-                    <div class="small-box bg-warning">
+                    <div class="small-box bg" style="background-color: #8ebefa;color: white;">
                     <div class="inner">
-                        <h3 id='count_customer' class="p_1"> <?= number_format($count_customer[0]['id']); ?></h3>
-                        <p>Customer</p>
+                        <h3 id='count_submitted' class="p_1"> <?= number_format($count_submitted[0]['id']); ?></h3>
+                        <p>Submitted</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-person-add"></i>
                     </div>
-                    <a href="#" data-link="customer" class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="#" data-link="<?= number_format($count_submitted[0]['id_stage']); ?>" class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
-                    <div class="small-box bg-success">
+                    <div class="small-box bg" style="background-color: #3c89e9;color: white;">
                     <div class="inner">
-                        <h3 id='count_products' class="p_1"> <?= number_format($count_products[0]['id']); ?></h3>
-                        <p>Products</p>
+                        <h3 id='count_open' class="p_1"> <?= number_format($count_open[0]['id']); ?></h3>
+                        <p>Open</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-ios-box"></i>
                     </div>
-                    <a href="#" data-link="products"class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="#" data-link="<?= number_format($count_open[0]['id_stage']); ?>" class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-6">
-                    <div class="small-box bg-danger">
+                    <div class="small-box bg" style="background-color: #003f8f;color: white;">
                     <div class="inner">
-                        <h3 id='count_supplier' class="p_1"><?= number_format($count_supplier[0]['id']); ?></h3>
-                        <p>Supplier</p>
+                        <h3 id='count_responded' class="p_1"> <?= number_format($count_responded[0]['id']); ?></h3>
+                        <p>Responded</p>
                     </div>
                     <div class="icon">
                         <i class="ion ion-social-dropbox"></i>
                     </div>
-                    <a href="#" data-link="supplier" class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    <a href="#" data-link="<?= number_format($count_responded[0]['id_stage']); ?>" class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
             </div>
+            
             <div class="row">
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-pie mr-1"></i>
-                                Categories
-                        </div>
-                        <div class="card-body"><canvas id="typeProductChartDonut" width="100%" height="40"></canvas></div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg" style="background-color: #2ded94;color: white;">
+                    <div class="inner">
+                        <h3 id='count_verified' class="p_1"> <?= number_format($count_verified[0]['id']); ?></h3>
+                        <p>Verified</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-bag"></i>
+                    </div>
+                    <a href="#" data-link="<?= number_format($count_verified[0]['id_stage']); ?>" class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-                <div class="col-xl-6">
-                    <div class="card mb-4">
-                        <div class="card-header">
-                            <i class="fas fa-chart-bar mr-1"></i>
-                            Sales
-                        </div>
-                        <div class="card-body"><canvas id="salesChartBar" width="100%" height="40"></canvas></div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg" style="background-color: #02ad5e;color: white;">
+                    <div class="inner">
+                        <h3 id='count_closed' class="p_1"> <?= number_format($count_closed[0]['id']); ?></h3>
+                        <p>Closed</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-person-add"></i>
+                    </div>
+                    <a href="#" data-link="<?= number_format($count_closed[0]['id_stage']); ?>" class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
                     </div>
                 </div>
-            </div>
-            <h5 class="mb-2">Info Stock</h5>
-            <div class="row">
-            <div class="col-md-4 col-sm-6 col-12  info-stock" data-link="sum">
-                <div class="info-box">
-                <span class="info-box-icon bg-info"><i class="fas fa-archive"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Total Stock</span>
-                    <span class="info-box-number p_1" id='sum_stoc'><?= number_format($sum_stoc[0]['stock']); ?></span>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg" style="background-color: #e37907;color: white;">
+                    <div class="inner">
+                        <h3 id='count_reopen' class="p_1"> <?= number_format($count_reopen[0]['id']); ?></h3>
+                        <p>Re-Open</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-ios-box"></i>
+                    </div>
+                    <a href="#" data-link="<?= number_format($count_reopen[0]['id_stage']); ?>"class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
                 </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12  info-stock" data-link="in">
-                <div class="info-box">
-                <span class="info-box-icon bg-success"><i class="fas fa-arrow-down"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Stock In</span>
-                    <span class="info-box-number p_1" id='sum_stoc_in'><?= number_format($sum_stoc_in[0]['stock']); ?></span>
-                </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-6 col-12 info-stock" data-link="out">
-                <div class="info-box">
-                <span class="info-box-icon bg-warning"><i class="fas fa-arrow-up"></i></span>
-                <div class="info-box-content">
-                    <span class="info-box-text">Stock Out</span>
-                    <span class="info-box-number p_1" id='sum_stoc_out'><?= number_format($sum_stoc_out[0]['stock']); ?></span>
-                </div>
+                <div class="col-lg-3 col-6">
+                    <div class="small-box bg" style="background-color: #525252;color: white;">
+                    <div class="inner">
+                        <h3 id='count_voided' class="p_1"> <?= number_format($count_voided[0]['id']); ?></h3>
+                        <p>Voided</p>
+                    </div>
+                    <div class="icon">
+                        <i class="ion ion-social-dropbox"></i>
+                    </div>
+                    <a href="#" data-link="<?= number_format($count_voided[0]['id_stage']); ?>" class="small-box-footer btn-info">More info <i class="fas fa-arrow-circle-right"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -139,12 +188,13 @@
             $('#date').on('apply.daterangepicker', function(ev, picker) {
                 start_date= picker.startDate.format('YYYY-MM-DD')
                 end_date = picker.endDate.format('YYYY-MM-DD')
-                salesChart(start_date, end_date)
-                typeProductChart(start_date, end_date)
                 getDataDashboard(start_date, end_date)
+                dataChartDonut(start_date, end_date)
+                dataChartBar(start_date, end_date)
             });
             $(".btn-info").click(function() {
                 let data = $(this).attr("data-link")
+                console.log(data);
                 $.ajax({
                     url: "<?= base_url('dashboard/get_modal_info') ?>",
                     data: { 
@@ -175,148 +225,10 @@
                     }
                 })
             })
-            salesChart()
-            typeProductChart()
             getDataDashboard()
-        });
-        salesChart = (start_date, end_date) => {
-            $.ajax({
-                url: "<?= base_url('dashboard/get_data_chart_sales') ?>",
-                data: { 
-                    p_start_date: start_date,
-                    p_end_date: end_date 
-                }, 
-                dataType: "json",
-                success: function(response) {
-                    console.log(response);
-                    let tahun = [];
-                    let bulan = [];
-                    let qty = [];
-
-                    $.each(response.data_order, function(key, value ) {
-                        tahun.push(value.tahun);
-                        bulan.push(value.bulan);
-                        qty.push(value.qty);
-                    });
-                    let ctx = $("#salesChartBar");
-                    let salesChartBar = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                        labels: bulan,
-                        datasets: [{
-                            label: "Sales",
-                            backgroundColor: "rgba(2,117,216,1)",
-                            borderColor: "rgba(2,117,216,1)",
-                            data: qty,
-                        }],
-                        },
-                        options: {
-                        scales: {
-                            xAxes: [{
-                            time: {
-                                unit: 'month'
-                            },
-                            gridLines: {
-                                display: false
-                            },
-                            ticks: {
-                                maxTicksLimit: 6
-                            }
-                            }],
-                            yAxes: [{
-                            ticks: {
-                                maxTicksLimit: 5
-                            },
-                            gridLines: {
-                                display: true
-                            }
-                            }],
-                        },
-                        legend: {
-                            display: false
-                        }
-                        }
-                    });
-                }
-            })
-        }
-
-        typeProductChart = (start_date, end_date) => {
-            $.ajax({
-                url: "<?= base_url('dashboard/get_data_chart_category') ?>",
-                data: { 
-                    p_start_date: start_date,
-                    p_end_date: end_date 
-                }, 
-                dataType: "json",
-                success: function(response) {
-                    let name_category = [];
-                    let count_product = [];
-
-                    $.each(response.data_products, function(key, value ) {
-                        name_category.push(value.name_category);
-                        count_product.push(value.count_product);
-                    });
-                    let typeProductChartDonut = $("#typeProductChartDonut");
-                    let salesChartBar = new Chart(typeProductChartDonut, {
-                        type: 'pie',
-                        data: {
-                        labels: name_category,
-                        datasets: [{
-                            label: "Categories",
-                            backgroundColor: [
-                            '#34ebdc',
-                            '#4287f5',
-                            '#d0eb34',
-                            '#ffbc03',
-                            '#ff4203'
-                            ],
-                            color: '#000000',
-                            data: count_product,
-                        }],
-                        },
-                        options: {
-                            legend: {
-                                display: true
-                            },
-                            plugins: {
-                                    outlabels: {
-                                        text: '%p.2',
-                                        color: 'white',
-                                        stretch: 10,
-                                        font: {
-                                            resizable: true,
-                                            minSize: 12,
-                                            maxSize: 18
-                                        }
-                                    },
-                                datalabels: {
-                                    formatter: (value, typeProductChartDonut) => {
-                                    let datasets = typeProductChartDonut.chart.data.datasets;
-                                    if (datasets.indexOf(ctx.dataset) === datasets.length - 1) {
-                                        let sum = datasets[0].data.reduce((a, b) => a + b, 0);
-                                        let percentage = Math.round((value / sum) * 100) + '%';
-                                        return '';
-                                    } else {
-                                        return '';
-                                    }
-                                    },
-                                    color: '#000000',
-                                    font: {
-                                    weight: 'bold',
-                                    size: 18,
-                                    },
-                                    display: function(context) {
-                                    return context.dataset.data[context.dataIndex] !== 0; // or >= 1 or ...
-                                    }
-                                }
-                            }
-                        }
-                    });
-                }
-            })
-            
-        }
+            dataChartDonut()
+            dataChartBar()
+        })
 
         getDataDashboard = (start_date, end_date) => {
             $.ajax({
@@ -328,18 +240,135 @@
                 dataType: "json",
                 success: function(response) {
                     $('.p_1').empty()
-                    $('#count_customer').append(response.count_customer[0].id)
-                    $('#count_order').append(response.count_order[0].id)
-                    $('#count_products').append(response.count_products[0].id)
-                    $('#count_supplier').append(response.count_supplier[0].id)
-                    $('#sum_stoc').append(response.sum_stoc[0].stock)
-                    $('#sum_stoc_in').append(response.sum_stoc_in[0].stock)
-                    $('#sum_stoc_out').append(response.sum_stoc_out[0].stock)
-
-                    console.log(response);
+                    $('#count_draft').append(response.count_draft[0].id)
+                    $('#count_submitted').append(response.count_submitted[0].id)
+                    $('#count_open').append(response.count_open[0].id)
+                    $('#count_responded').append(response.count_responded[0].id)
+                    $('#count_verified').append(response.count_verified[0].id)
+                    $('#count_closed').append(response.count_closed[0].id)
+                    $('#count_reopen').append(response.count_reopen[0].id)
+                    $('#count_voided').append(response.count_voided[0].id)
                 }
             })
         }
+
+        donutChart = (chart_data_donut) =>{
+            var pieChartCanvas = $('#chart-donut')
+            var pieData = chart_data_donut
+            var pieOptions = {
+                legend: {
+                    position: 'top',
+                },
+                maintainAspectRatio: false,
+            }
+            var pieChart = new Chart(pieChartCanvas, { 
+                type: 'doughnut',
+                data: pieData,
+                options: pieOptions
+            })
+        }
+        barChart = (chart_data) => {
+            var salesChartCanvas = $("#chart-bar")
+            var salesChartData = chart_data
+
+            var salesChartOptions = {
+                maintainAspectRatio: false,
+                responsive: true,
+                legend: {
+                display: false
+                },
+                scales: {
+                xAxes: [{
+                    gridLines: {
+                    display: false
+                    }
+                }],
+                yAxes: [{
+                    gridLines: {
+                    display: false
+                    }
+                }]
+                }
+            }
+
+            var salesChart = new Chart(salesChartCanvas, { 
+                type: 'bar',
+                data: salesChartData,
+                options: salesChartOptions
+            })
+        }
+        
+        dataChartDonut = (start_date, end_date) => {
+            $.ajax({
+                url: "<?= base_url('dashboard/get_data_chart_status') ?>",
+                data: { 
+                    p_start_date: start_date,
+                    p_end_date: end_date 
+                }, 
+                dataType: "json",
+                success: function(response) {
+                    let status_name = [];
+                    let count_status = [];
+
+                    $.each(response.data_status, function(key, value ) {
+                        status_name.push(value.status_name);
+                        count_status.push(value.count_status);
+                    });
+                    
+                    var chart_data_donut = {
+                        labels:status_name,
+                        datasets: [
+                            {
+                                data: count_status,
+                                backgroundColor: [
+                                    '#3c89e9',
+                                    '#02ad5e',
+                                    '#525252'
+                                ]
+                            }
+                        ]
+                    };
+                    donutChart(chart_data_donut)
+                }
+            })
+        }
+        
+        dataChartBar = (start_date, end_date) => {
+            $.ajax({
+                url: "<?= base_url('dashboard/get_data_chart_bar') ?>",
+                data: { 
+                    p_start_date: start_date,
+                    p_end_date: end_date 
+                }, 
+                dataType: "json",
+                success: function(response) {
+                    let label_name = [];
+                    let data_effective = [];
+                    let data_non = [];
+                    $.each(response.data_status, function(key, value ) {
+                        label_name.push(value.name);
+                        data_effective.push(value.data_effective);
+                        data_non.push(value.data_non);
+                    });
+                    var chart_data = {
+                        labels:label_name,
+                        datasets:[ {
+                                label:'Effective',
+                                backgroundColor:'#003f8f',
+                                data:data_effective
+                            },
+                            {
+                                label:'Not Effective',
+                                backgroundColor:'#e37907',
+                                data:data_non
+                            }
+                        ],
+                    };
+                    barChart(chart_data)
+                }
+            })
+        }
+        
     </script>
 
     <?= $this->endSection(); ?>

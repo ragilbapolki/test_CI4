@@ -8,57 +8,65 @@
                         <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                         Dashboard
                     </a>
+                    <a class="nav-link" href="<?= base_url('administrator/setting_user'); ?>">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Setting User
+                    </a>
                     <div class="sb-sidenav-menu-heading">Master</div>
-                    <a class="nav-link" href="<?= base_url('master/store'); ?>">
+                    <a class="nav-link" href="<?= base_url('master/division'); ?>">
                     <i class=""></i>
                         <div class="sb-nav-link-icon"><i class="fas fa-store"></i></div>
-                        Master Store
+                        Master Division
                     </a>
-                    <a class="nav-link" href="<?= base_url('master/customer'); ?>">
+                    <a class="nav-link" href="<?= base_url('master/position'); ?>">
                     <i class=""></i>
                         <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                        Master Customer
+                        Master Position
                     </a>
-                    <a class="nav-link" href="<?= base_url('master/supplier'); ?>">
+                    <a class="nav-link" href="<?= base_url('master/branch'); ?>">
                     <i class=""></i>
                         <div class="sb-nav-link-icon"><i class="fas fa-truck"></i></div>
-                        Master Supplier
+                        Master Branch
                     </a>
-                    <a class="nav-link" href="<?= base_url('master/category_products'); ?>">
+                    <a class="nav-link" href="<?= base_url('master/employee'); ?>">
                     <i class=""></i>
                         <div class="sb-nav-link-icon"><i class="fas fa-tag"></i></div>
-                        Master Categories
+                        Master Employee
                     </a>
-                    <a class="nav-link" href="<?= base_url('master/products'); ?>">
+                    <a class="nav-link" href="<?= base_url('master/category'); ?>">
                     <i class=""></i>
                         <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
-                        Master Products
+                        Master Categories
                     </a>
-                    <a class="nav-link" href="<?= base_url('master/unit'); ?>">
+                    <a class="nav-link" href="<?= base_url('master/stage'); ?>">
                     <i class=""></i>
-                        <div class="sb-nav-link-icon"><i class="fas fa-weight-hanging"></i></i></div>
-                        Master Unit
+                        <div class="sb-nav-link-icon"><i class="fas fa-box"></i></div>
+                        Master STAGE
                     </a>
                     <div class="sb-sidenav-menu-heading">Transaction</div>
-                    <a class="nav-link" href="<?= base_url('transaction/price_products'); ?>">
+                    <a class="nav-link" href="<?= base_url('transaction/carp'); ?>">
                     <i class=""></i>
                         <div class="sb-nav-link-icon"><i class="fas fa-money-bill-wave"></i></div>
-                        Price Product
+                        CARP
                     </a>
-                    <a class="nav-link" href="<?= base_url('transaction/stock'); ?>">
+                    <a class="nav-link" href="<?= base_url('transaction/carp_pic'); ?>">
                     <i class=""></i>
-                        <div class="sb-nav-link-icon"><i class="fas fa-archive"></i></div>
-                        Stock Product
+                        <div class="sb-nav-link-icon"><i class="fas fa-money-bill-wave"></i></div>
+                        Your CARP
                     </a>
-                    <a class="nav-link" href="<?= base_url('transaction/order'); ?>">
+                    <a class="nav-link" href="<?= base_url('transaction/carp_approval'); ?>">
                     <i class=""></i>
-                        <div class="sb-nav-link-icon"><i class="fas fa-shopping-cart"></i></div>
-                        Order
+                        <div class="sb-nav-link-icon"><i class="fas fa-money-bill-wave"></i></div>
+                        Approval CARP
                     </a>
                     <div class="sb-sidenav-menu-heading">Report</div>
                     <a class="nav-link" href="<?= base_url('report/index_print_pdf'); ?>">
                         <div class="sb-nav-link-icon"><i class="fas fa-file-pdf"></i></div>
-                        Print Order
+                        Print PDF
+                    </a>
+                    <a class="nav-link" href="<?= base_url('report/index_print_excel'); ?>">
+                        <div class="sb-nav-link-icon"><i class="fas fa-file-pdf"></i></div>
+                        Print Excel
                     </a>
                     <div class="sb-sidenav-menu-heading">Logout</div>
                     <a class="nav-link" href="#" data-toggle="modal" data-target="#logoutModal">

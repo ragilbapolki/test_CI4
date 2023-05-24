@@ -2,9 +2,10 @@
 
 namespace Config;
 use App\Controllers\DashboardController;
-use App\Controllers\Master\{ProductsController, CategoryProductsController, UnitController, 
-	SupplierController, CustomerController, StoreController};
-use App\Controllers\Transaction\{PriceProductsController, StockProductsController, OrderController};
+use App\Controllers\Administrator\{UserController};
+use App\Controllers\Master\{CategoryController, StageController, DivController, PositionController, 
+	BranchController, EmployeeController};
+use App\Controllers\Transaction\{CarpController, CarpPICController, CarpApprovalController};
 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
@@ -38,101 +39,103 @@ $routes->setAutoRoute(true);
 $routes->get('/',[DashboardController::class, 'index']);
 
 // $routes->get('/products-jquery', 'ProductsController::index', ['filter' => 'role:administrator, user']);
+
+
+$routes->group('/administrator', function($routes){
+	$routes->group('setting_user', function($routes){
+		$routes->get('/', [UserController::class, 'index']);
+		$routes->get('get_data', [UserController::class, 'get_data']);
+		$routes->get('get_modal', [UserController::class, 'get_modal']);
+		$routes->post('save_data', [UserController::class, 'save_data']);
+	});
+});
+
 $routes->group('/master', function($routes){
-	$routes->group('category_products', function($routes){
-		$routes->get('/', [CategoryProductsController::class, 'index']);
-		$routes->get('get_data', [CategoryProductsController::class, 'get_data']);
-		$routes->get('get_modal', [CategoryProductsController::class, 'get_modal']);
-		$routes->post('save_data', [CategoryProductsController::class, 'save_data']);
-		$routes->post('get_modal_edit', [CategoryProductsController::class, 'get_modal_edit']);
-		$routes->post('update_data', [CategoryProductsController::class, 'update_data']);
-		$routes->post('delete_data', [CategoryProductsController::class, 'delete_data']);
+	$routes->group('division', function($routes){
+		$routes->get('/', [DivController::class, 'index']);
+		$routes->get('get_data', [DivController::class, 'get_data']);
+		$routes->get('get_modal', [DivController::class, 'get_modal']);
+		$routes->post('save_data', [DivController::class, 'save_data']);
+		$routes->post('get_modal_edit', [DivController::class, 'get_modal_edit']);
+		$routes->post('update_data', [DivController::class, 'update_data']);
+		$routes->post('delete_data', [DivController::class, 'delete_data']);
 	});
-	$routes->group('unit', function($routes){
-		$routes->get('/', [UnitController::class, 'index']);
-		$routes->get('get_data', [UnitController::class, 'get_data']);
-		$routes->get('get_modal', [UnitController::class, 'get_modal']);
-		$routes->post('save_data', [UnitController::class, 'save_data']);
-		$routes->post('get_modal_edit', [UnitController::class, 'get_modal_edit']);
-		$routes->post('update_data', [UnitController::class, 'update_data']);
-		$routes->post('delete_data', [UnitController::class, 'delete_data']);
+	$routes->group('position', function($routes){
+		$routes->get('/', [PositionController::class, 'index']);
+		$routes->get('get_data', [PositionController::class, 'get_data']);
+		$routes->get('get_modal', [PositionController::class, 'get_modal']);
+		$routes->post('save_data', [PositionController::class, 'save_data']);
+		$routes->post('get_modal_edit', [PositionController::class, 'get_modal_edit']);
+		$routes->post('update_data', [PositionController::class, 'update_data']);
+		$routes->post('delete_data', [PositionController::class, 'delete_data']);
 	});
-	$routes->group('products', function($routes){
-		$routes->get('/', [ProductsController::class, 'index']);
-		$routes->get('get_data', [ProductsController::class, 'get_data']);
-		$routes->get('get_modal', [ProductsController::class, 'get_modal']);
-		$routes->post('save_data', [ProductsController::class, 'save_data']);
-		$routes->post('get_modal_edit', [ProductsController::class, 'get_modal_edit']);
-		$routes->post('update_data', [ProductsController::class, 'update_data']);
-		$routes->post('delete_data', [ProductsController::class, 'delete_data']);
-		$routes->post('get_modal_detail', [ProductsController::class, 'get_modal_detail']);
-		$routes->get('get_first_data', [ProductsController::class, 'get_first_data']);
+	$routes->group('branch', function($routes){
+		$routes->get('/', [BranchController::class, 'index']);
+		$routes->get('get_data', [BranchController::class, 'get_data']);
+		$routes->get('get_modal', [BranchController::class, 'get_modal']);
+		$routes->post('save_data', [BranchController::class, 'save_data']);
+		$routes->post('get_modal_edit', [BranchController::class, 'get_modal_edit']);
+		$routes->post('update_data', [BranchController::class, 'update_data']);
+		$routes->post('delete_data', [BranchController::class, 'delete_data']);
 	});
-	$routes->group('supplier', function($routes){
-		$routes->get('/', [SupplierController::class, 'index']);
-		$routes->get('get_data', [SupplierController::class, 'get_data']);
-		$routes->get('get_modal', [SupplierController::class, 'get_modal']);
-		$routes->post('save_data', [SupplierController::class, 'save_data']);
-		$routes->post('get_modal_edit', [SupplierController::class, 'get_modal_edit']);
-		$routes->post('update_data', [SupplierController::class, 'update_data']);
-		$routes->post('delete_data', [SupplierController::class, 'delete_data']);
+	$routes->group('employee', function($routes){
+		$routes->get('/', [EmployeeController::class, 'index']);
+		$routes->get('get_data', [EmployeeController::class, 'get_data']);
+		$routes->get('get_modal', [EmployeeController::class, 'get_modal']);
+		$routes->post('save_data', [EmployeeController::class, 'save_data']);
+		$routes->post('get_modal_edit', [EmployeeController::class, 'get_modal_edit']);
+		$routes->post('update_data', [EmployeeController::class, 'update_data']);
+		$routes->post('delete_data', [EmployeeController::class, 'delete_data']);
 	});
-	$routes->group('customer', function($routes){
-		$routes->get('/', [CustomerController::class, 'index']);
-		$routes->get('get_data', [CustomerController::class, 'get_data']);
-		$routes->get('get_modal', [CustomerController::class, 'get_modal']);
-		$routes->post('save_data', [CustomerController::class, 'save_data']);
-		$routes->post('get_modal_edit', [CustomerController::class, 'get_modal_edit']);
-		$routes->post('update_data', [CustomerController::class, 'update_data']);
-		$routes->post('delete_data', [CustomerController::class, 'delete_data']);
+	$routes->group('category', function($routes){
+		$routes->get('/', [CategoryController::class, 'index']);
+		$routes->get('get_data', [CategoryController::class, 'get_data']);
+		$routes->get('get_modal', [CategoryController::class, 'get_modal']);
+		$routes->post('save_data', [CategoryController::class, 'save_data']);
+		$routes->post('get_modal_edit', [CategoryController::class, 'get_modal_edit']);
+		$routes->post('update_data', [CategoryController::class, 'update_data']);
+		$routes->post('delete_data', [CategoryController::class, 'delete_data']);
 	});
-	$routes->group('store', function($routes){
-		$routes->get('/', [StoreController::class, 'index']);
-		$routes->get('get_data', [StoreController::class, 'get_data']);
-		$routes->get('get_modal', [StoreController::class, 'get_modal']);
-		$routes->post('save_data', [StoreController::class, 'save_data']);
-		$routes->post('get_modal_edit', [StoreController::class, 'get_modal_edit']);
-		$routes->post('update_data', [StoreController::class, 'update_data']);
-		$routes->post('delete_data', [StoreController::class, 'delete_data']);
+	$routes->group('stage', function($routes){
+		$routes->get('/', [StageController::class, 'index']);
+		$routes->get('get_data', [StageController::class, 'get_data']);
+		$routes->get('get_modal', [StageController::class, 'get_modal']);
+		$routes->post('save_data', [StageController::class, 'save_data']);
+		$routes->post('get_modal_edit', [StageController::class, 'get_modal_edit']);
+		$routes->post('update_data', [StageController::class, 'update_data']);
+		$routes->post('delete_data', [StageController::class, 'delete_data']);
 	});
 });
 
 $routes->group('/transaction', function($routes){
-	$routes->group('price_products', function($routes){
-		$routes->get('/', [PriceProductsController::class, 'index']);
-		$routes->get('get_data', [PriceProductsController::class, 'get_data']);
-		$routes->get('get_modal', [PriceProductsController::class, 'get_modal']);
-		$routes->post('save_data', [PriceProductsController::class, 'save_data']);
+	$routes->group('carp', function($routes){
+		$routes->get('/', [CarpController::class, 'index']);
+		$routes->get('get_data', [CarpController::class, 'get_data']);
+		$routes->get('get_modal', [CarpController::class, 'get_modal']);
+		$routes->post('save_data', [CarpController::class, 'save_data']);
 	});
-	$routes->group('stock', function($routes){	
-		$routes->get('/', [StockProductsController::class, 'index']);
-		$routes->get('get_data', [StockProductsController::class, 'get_data']);
-		$routes->get('get_modal', [StockProductsController::class, 'get_modal']);
-		$routes->post('save_data', [StockProductsController::class, 'save_data']);
+	$routes->group('carp_pic', function($routes){	
+		$routes->get('/', [CarpPICController::class, 'index']);
+		$routes->get('get_data', [CarpPICController::class, 'get_data']);
+		$routes->post('get_modal_detail', [CarpPICController::class, 'get_modal_detail']);
+		$routes->post('update_stage', [CarpPICController::class, 'update_stage']);
+		$routes->post('get_progress', [CarpPICController::class, 'get_progress']);
+		$routes->post('save_progress', [CarpPICController::class, 'save_progress']);
 	});
-	$routes->group('order', function($routes){	
-		$routes->get('/', [OrderController::class, 'index']);
-		$routes->get('get_modal', [OrderController::class, 'get_modal']);
-		$routes->get('get_modal_pay', [OrderController::class, 'get_modal_pay']);
-		$routes->post('save_data', [OrderController::class, 'save_data']);
+	$routes->group('carp_approval', function($routes){	
+		$routes->get('/', [CarpApprovalController::class, 'index']);
+		$routes->get('get_data', [CarpApprovalController::class, 'get_data']);
+		$routes->post('get_modal_detail', [CarpApprovalController::class, 'get_modal_detail']);
+		$routes->post('save_progress', [CarpApprovalController::class, 'save_progress']);
 	});
-});
-
-$routes->group('/report', function($routes){
-	$routes->get('index_print_pdf', [OrderController::class, 'index_print_pdf']);
-	$routes->get('get_data', [OrderController::class, 'get_data']);
-	$routes->get('export-pdf', [OrderController::class, 'export_pdf']);
-	$routes->post('get_modal_detail', [OrderController::class, 'get_modal_detail']);
-	$routes->get('print_invoice', [OrderController::class, 'export_pdf']);
 });
 
 $routes->group('/dashboard', function($routes){
 	$routes->get('/',[DashboardController::class, 'index']);
-	$routes->get('get_data_chart_sales', [DashboardController::class, 'get_data_chart_sales']);
-	$routes->get('get_data_chart_category', [DashboardController::class, 'get_data_chart_category']);
+	$routes->get('get_data_chart_bar', [DashboardController::class, 'get_data_chart_bar']);
+	$routes->get('get_data_chart_status', [DashboardController::class, 'get_data_chart_status']);
 	$routes->get('get_data_dashboard', [DashboardController::class, 'get_data_dashboard']);
 	$routes->get('get_modal_info', [DashboardController::class, 'get_modal_info']);
-	$routes->get('get_modal_info_stock', [DashboardController::class, 'get_modal_info_stock']);
 });
 
 
